@@ -1,7 +1,7 @@
 # Build stage
 FROM maven:3.8.2-jdk-17 AS build
 WORKDIR /app
-COPY ./app
+COPY ./app/
 RUN mvn clean package 
 
 # Package stage
