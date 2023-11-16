@@ -8,5 +8,5 @@ RUN mvn clean package -Pprod -DskipTests
 FROM openjdk:17-jdk-slim
 WORKDIR /app
 COPY --from=build /app/target/userRegistration-2em-3.0.2.jar demo.jar
-EXPOSE 8080
+EXPOSE 8881
 ENTRYPOINT ["java","-jar","demo.jar"]
