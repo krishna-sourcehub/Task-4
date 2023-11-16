@@ -1,9 +1,12 @@
-FROM ubuntu-latest AS build
-RUN apt-get update
-RUN apt-get install openjdk-17-jdk -y
+# Build stage
+FROM maven:3.8.2-jdk-17 AS build
+WORKDIR /app
+COPY ./app
+RUN mvn clean package 
 
 # Package stage
 FROM openjdk:17-jdk-slim
-COPY --from=build /app/target/userRegistration-2em-3.0.2.jar demo.jar
+WORKDIR /app
+COPY --from=build /app/target/userRegistration-2em-3.0.2.jar /app/app.jar
 EXPOSE 8881
-ENTRYPOINT ["java","-jar","demo.jar"]
+ENTRYPOINT ["java","-jar","app.jar"]
