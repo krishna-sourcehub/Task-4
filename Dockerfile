@@ -6,6 +6,6 @@ RUN mvn clean package -DskipTests
 
 # Package stage
 FROM openjdk:17.0.1-jdk-slim
-COPY --from=build /target/userRegistration-0.0.1-SNAPSHOT.jar demo.jar
+COPY --from=build /target/userRegistration-2em-3.0.2.jar demo.jar
 EXPOSE 8080
 ENTRYPOINT ["java","-jar","demo.jar"]
