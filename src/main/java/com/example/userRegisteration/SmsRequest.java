@@ -1,37 +1,33 @@
 package com.example.userRegisteration;
-
-import com.fasterxml.jackson.annotation.JsonProperty;
-
-
-
 public class SmsRequest {
 
-    @jakarta.validation.constraints.NotBlank
-    private final String phoneNumber; // destination
+    private String phoneNumber;
+    private String message;
+    
 
-    @jakarta.validation.constraints.NotBlank
-    private final String message;
+	public String getPhoneNumber() {
+		return phoneNumber;
+	}
+	public void setPhoneNumber(String phoneNumber) {
+		this.phoneNumber = phoneNumber;
+	}
+	public String getMessage() {
+		return message;
+	}
+	public void setMessage(String message) {
+		this.message = message;
+	}
+	public String toString() {
+		return "SmsRequest [phoneNumber=" + phoneNumber + ", message=" + message + "]";
+	}
+	public SmsRequest(String phoneNumber, String message) {
+		super();
+		this.phoneNumber = phoneNumber;
+		this.message = message;
+	}
 
-    public SmsRequest(@JsonProperty("phoneNumber") String phoneNumber,
-                      @JsonProperty("message") String message) {
-        this.phoneNumber = phoneNumber;
-        this.message = message;
-    }
-
-    public String getPhoneNumber() {
-        return phoneNumber;
-    }
-
-    public String getMessage() {
-        return message;
-    }
-
-   
-	@Override
-    public String toString() {
-        return "SmsRequest{" +
-                "phoneNumber= ..." + '\'' +
-                ", message='" + message + '\'' +
-                '}';
-    }
+	
+	
+	
 }
+

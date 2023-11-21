@@ -1,6 +1,5 @@
 package com.example.userRegisteration;
 
-
 public class EmailRequest {
 
     private String recipient;

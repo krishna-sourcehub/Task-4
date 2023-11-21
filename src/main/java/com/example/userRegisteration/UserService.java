@@ -1,9 +1,4 @@
-//package com.example.userRegisteration;
-//
-//public interface StudentService {
-//
-//    boolean isStudentPresent(String studentname);
-//}
+
 package com.example.userRegisteration;
 
 import java.util.List;

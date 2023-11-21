@@ -1,5 +1,6 @@
 package com.example.userRegisteration;
 
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.FileSystemResource;
 import org.springframework.mail.SimpleMailMessage;

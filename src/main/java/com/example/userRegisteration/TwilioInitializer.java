@@ -1,25 +1,13 @@
 package com.example.userRegisteration;
-
 import com.twilio.Twilio;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Configuration;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Component;
 
-@Configuration
+@Component
 public class TwilioInitializer {
 
-    private final static Logger LOGGER = LoggerFactory.getLogger(TwilioInitializer.class);
-
-    private final TwilioConfiguration twilioConfiguration;
-
-    @Autowired
-    public TwilioInitializer(TwilioConfiguration twilioConfiguration) {
-        this.twilioConfiguration = twilioConfiguration;
-        Twilio.init(
-                twilioConfiguration.getAccountSid(),
-                twilioConfiguration.getAuthToken()
-        );
-        LOGGER.info("Twilio initialized ... with account sid {} ", twilioConfiguration.getAccountSid());
+    public TwilioInitializer(@Value("${twilio.account.sid}") String accountSid,
+                             @Value("${twilio.auth.token}") String authToken) {
+        Twilio.init(accountSid, authToken);
     }
 }
